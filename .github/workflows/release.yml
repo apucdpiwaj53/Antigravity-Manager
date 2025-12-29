@@ -60,6 +60,7 @@ jobs:
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
+        id: tauri
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
