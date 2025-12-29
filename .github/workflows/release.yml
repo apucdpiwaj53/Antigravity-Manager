@@ -69,5 +69,12 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
+      
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: antigravity-${{ github.ref_name }}-${{ matrix.platform }}${{ matrix.args != '' && format('-{0}', replace(matrix.args, ' ', '')) || '' }}
+          path: ${{ steps.tauri.outputs.artifactPaths }}
+          
 
